@@ -24,9 +24,9 @@ ESP8266Interface wifi(MBED_CONF_APP_ESP8266_TX, MBED_CONF_APP_ESP8266_RX);
 #include "SPWFSAInterface5.h"
 
 #ifdef MBED_CONF_APP_SPWF01SA_DEBUG
-SPWFSAInterface5 wifi(MBED_CONF_APP_SPWFSA_TX, MBED_CONF_APP_SPWF01SA_RX, MBED_CONF_APP_SPWF01SA_DEBUG);
+SPWFSAInterface5 wifi(MBED_CONF_APP_SPWF01SA_TX, MBED_CONF_APP_SPWF01SA_RX, MBED_CONF_APP_SPWF01SA_DEBUG);
 #else
-SPWFSAInterface5 wifi(MBED_CONF_APP_SPWFSA_TX, MBED_CONF_APP_SPWF01SA_RX, false);
+SPWFSAInterface5 wifi(MBED_CONF_APP_SPWF01SA_TX, MBED_CONF_APP_SPWF01SA_RX, false);
 #endif
 
 #elif MBED_CONF_APP_NETWORK_INTERFACE == WIFI_ODIN
@@ -99,9 +99,9 @@ NetworkInterface* easy_connect(bool log_messages = false) {
     connect_success = eth.connect();
     network_interface = &eth;
 
-#elif MBED_CONF_APP_NETWORK_INTERFACE == SPWFSAINTERFACE
+#elif MBED_CONF_APP_NETWORK_INTERFACE == WIFI_SPWF01SA
     if (log_messages) {
-        printf("[EasyConnect] Using WiFi (SPWFSAINTERFACE) \n");
+        printf("[EasyConnect] Using WiFi (SPWF01SA) \n");
         printf("[EasyConnect] Connecting to WiFi %s\n", MBED_CONF_APP_WIFI_SSID);
     }
     connect_success = wifi.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
